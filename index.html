@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Wheel of Destiny</title>
+	<link rel="stylesheet" type="text/css" href="/global-style.css">
+    <link rel="stylesheet" type="text/css" href="/projects/wheel/style.css"/>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112742388-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-112742388-1');
+	</script>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="menu-div">
+            <input id="wheel-title" value="Wheel of Destiny">
+            <div id="wheel-options">
+                
+            </div>
+            <button class="wheel-actions" id="new-wheel-btn">
+                <object class="svg-obj" data="/projects/wheel/icons/trash.svg#trash-icon" type="image/svg+xml">
+                    <img src="/projects/wheel/icons/trash.png" />
+                </object>
+                <span class="btn-tooltip">Delete wheel</span>
+            </button>
+            <button class="wheel-actions" id="save-wheel-btn">
+                <object class="svg-obj" data="/projects/wheel/icons/save.svg#save-icon" type="image/svg+xml">
+                    <img src="/projects/wheel/icons/save.png" />
+                </object>
+                <span class="btn-tooltip">Save wheel</span>
+            </button>
+            <button class="wheel-actions" id="load-wheel-btn">
+                <object class="svg-obj" data="/projects/wheel/icons/folder-2.svg#disc-icon" type="image/svg+xml">
+                    <img src="/projects/wheel/icons/folder-2.png" />
+                </object>
+                <span class="btn-tooltip">Load wheel</span>
+            </button>
+            <button class="wheel-actions" id="share-wheel-btn">
+                <object class="svg-obj" data="/projects/wheel/icons/share.svg#share-icon" type="image/svg+xml">
+                    <img src="/projects/wheel/icons/share.png" />
+                </object>
+                <span class="btn-tooltip">Share wheel</span>
+            </button>
+            <button class="wheel-actions" id="add-option-btn">
+                <object class="svg-obj" data="/projects/wheel/icons/add-2.svg#add-icon" type="image/svg+xml">
+                    <img src="/projects/wheel/icons/add-2.png" />
+                </object>
+                <span class="btn-tooltip">Add option</span>
+            </button><br>
+
+            <canvas>
+            </canvas>
+
+            <button id="start-btn">Spin it!</button>
+            <div id="winner-div">
+                '<span id="winning-option">Something</span>' Wins!
+            </div>
+        </div>
+    </div>
+
+    <div class="wheel-option">
+        <div>
+            <input class="option-input" value="Option 1">
+            <button class="option-delete" disabled>&times;</button>
+        </div>
+    </div>
+
+    <div class="wheel-preview">
+        <span class="wheel-preview-title">Title</span><br>
+        <button class="delete-cookie-btn">
+            <object class="svg-obj" data="/projects/wheel/icons/trash.svg#trash-icon" type="image/svg+xml">
+                <img src="/projects/wheel/icons/trash.png" />
+            </object>
+        </button>
+        <canvas class="wheel-preview-canvas"></canvas>
+    </div>
+
+    <div id="load-modal" class="modal empty">
+        <button class="close-modal-btn" onclick="closeModal('load-modal');">&times;</button>
+        <div id="load-wheel-desc">You do not have any saved wheels</div>
+        <div id="load-wheels-div">
+
+        </div>
+        <button id="load-wheel-confirm-btn" class="modal-action-btn">OK</button>
+        <div id="cookie-notice">NB: This totally uses cookies. Read how <a href="/projects/wheel/privacy/" target="_blank">here</a>.</div>
+    </div>
+
+    <div id="share-modal" class="modal">
+        <button class="close-modal-btn" onclick="closeModal('share-modal');">&times;</button>
+        Share this wheel via. this URL:
+        <textarea id="share-url" readonly resizable="false"></textarea>
+        <button class="modal-action-btn" onclick="copyURL();">Copy Link</button>
+    </div>
+
+    <div id="delete-modal" class="modal">
+        <button class="close-modal-btn" onclick="closeModal('delete-modal');">&times;</button>
+        Are you sure you want to create a new wheel? This will delete the current one
+        (if you haven't saved it).<br>
+        <button class="modal-action-btn" onclick="newWheel();">OK</button>
+        <button class="modal-action-btn" onclick="closeModal('delete-modal');">Cancel</button>
+    </div>
+
+    <div id="wheel-saved-popup" class="modal">
+        <button class="close-modal-btn" onclick="closeModal('wheel-saved-popup');">&times;</button>
+        Wheel saved!<br>
+        NB: This uses cookies.
+    </div>
+
+    <script type="text/javascript" src="/scripts/canvashelper.js"></script>
+    <script type="text/javascript" src="/projects/wheel/main.js"></script>
+</body>
+</html>
